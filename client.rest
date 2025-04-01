@@ -2,6 +2,8 @@
 
 # RECADOS
 GET {{baseUrl}}/recados
+?limit=10
+&offset=0
 ###
 GET {{baseUrl}}/recados/1/
 ###
@@ -17,7 +19,7 @@ Content-Type: application/json
 }
 
 ###
-PATCH  {{baseUrl}}/recados/2/
+PATCH  {{baseUrl}}/recados/3/
 Content-Type: application/json
 
 {

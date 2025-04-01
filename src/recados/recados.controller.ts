@@ -1,5 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
 import { RecadosServices } from './recados.service';
+import { CreateRecadoDto } from './dto/create-recado.dto';
+import { UpdateRecadoDto } from './dto/update-recado.dto';
 
 @Controller('recados')
 export class RecadosController {
@@ -18,13 +20,14 @@ export class RecadosController {
     }
 
     @Post()
-    create(@Body() body: any) {
-        return this.recadosServices.create(body);
+    create(@Body() createRecadoDto: CreateRecadoDto) {
+        return this.recadosServices.create(createRecadoDto);
     }
 
     @Patch(':id')
-    update(@Param('id') id: number, @Body() Body: any) {
-         this.recadosServices.update(id, Body);
+    update(@Param('id') id: number, @Body() updateRecadoDto: UpdateRecadoDto) {
+        console.log('update', id, updateRecadoDto)
+         this.recadosServices.update(id, updateRecadoDto);
     }
 
     @Delete(':id')
