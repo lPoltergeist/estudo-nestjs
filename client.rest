@@ -5,7 +5,7 @@ GET {{baseUrl}}/recados
 ?limit=10
 &offset=0
 ###
-GET {{baseUrl}}/recados/1/
+GET {{baseUrl}}/recados/2/
 ###
 POST {{baseUrl}}/recados/
 Content-Type: application/json
@@ -13,21 +13,16 @@ Content-Type: application/json
 {
    "texto": "Este é um recado de teste",
     "de": "Joana",
-    "para": "Maria",
-    "lido": false,
-    "data": "2025-03-31T13:18:55.891Z"
+    "para": "Maria"
 }
 
 ###
-PATCH  {{baseUrl}}/recados/3/
+PATCH  {{baseUrl}}/recados/6/
 Content-Type: application/json
 
 {
-    "texto": "Recado atualizado",
-    "de": "Adalberto",
-    "para": "Zézinho",
-    "lido": false,
-    "data": "2025-03-31T13:18:55.891Z"
+    "texto": "Recado teste",
+    "lido": true
 }
 
 ###

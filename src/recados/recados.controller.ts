@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query } from '@nestjs/common';
 import { RecadosServices } from './recados.service';
 import { CreateRecadoDto } from './dto/create-recado.dto';
 import { UpdateRecadoDto } from './dto/update-recado.dto';
@@ -25,13 +25,14 @@ export class RecadosController {
     }
 
     @Patch(':id')
-    update(@Param('id') id: number, @Body() updateRecadoDto: UpdateRecadoDto) {
+    update(@Param('id', ParseIntPipe) id: number, @Body() updateRecadoDto: UpdateRecadoDto) {
         console.log('update', id, updateRecadoDto)
          this.recadosServices.update(id, updateRecadoDto);
     }
 
     @Delete(':id')
-    remove(@Param('id') id: number) {
+
+    remove(@Param('id', ParseIntPipe) id: number) {
         console.log('remove', id)
          this.recadosServices.remove(id);
     }
